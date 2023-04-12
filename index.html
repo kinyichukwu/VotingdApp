@@ -30,19 +30,6 @@
 		"inputs": [
 			{
 				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			}
-		],
-		"name": "delegate",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
-	{
-		"inputs": [
-			{
-				"internalType": "address",
 				"name": "voter",
 				"type": "address"
 			}
@@ -128,11 +115,6 @@
 				"type": "bool"
 			},
 			{
-				"internalType": "address",
-				"name": "delegate",
-				"type": "address"
-			},
-			{
 				"internalType": "uint256",
 				"name": "vote",
 				"type": "uint256"
@@ -168,16 +150,13 @@
 		"type": "function"
 	}
 ]
-
-
-
         // const provider = new ethers.providers.web3Provider(web3.currentProvider);
         const provider = new ethers.providers.Web3Provider(
           web3.currentProvider
         );
 
         contract = new ethers.Contract(
-          "0xce51017C58ed5F4187604c97310D22A3c54b35b1",
+          "0xEf3e3A724b4f21Ad9684f50BACDD84B70218a807",
           abi,
           provider
         );
@@ -213,20 +192,7 @@
       }
 
       async function vote() {
-        abi = [
-	{
-		"inputs": [
-			{
-				"internalType": "address",
-				"name": "to",
-				"type": "address"
-			}
-		],
-		"name": "delegate",
-		"outputs": [],
-		"stateMutability": "nonpayable",
-		"type": "function"
-	},
+       abi = [
 	{
 		"inputs": [
 			{
@@ -316,11 +282,6 @@
 				"type": "bool"
 			},
 			{
-				"internalType": "address",
-				"name": "delegate",
-				"type": "address"
-			},
-			{
 				"internalType": "uint256",
 				"name": "vote",
 				"type": "uint256"
@@ -357,13 +318,14 @@
 	}
 ]
 
+
         await ethereum.request({ method: "eth_requestAccounts" });
 
         const provider = new ethers.providers.Web3Provider(window.ethereum);
 
         signer = provider.getSigner();
         contract = new ethers.Contract(
-          "0xce51017C58ed5F4187604c97310D22A3c54b35b1",
+          "0xEf3e3A724b4f21Ad9684f50BACDD84B70218a807",
           abi,
           signer
         );
@@ -378,6 +340,8 @@
         });
       }
     </script>
+
+
     <div id="metamask"></div>
 
 
