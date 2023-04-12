@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css">
+
+    <script
+      src="https://cdn.ethers.io/lib/ethers-5.2.umd.min.js"
+      type="application/javascript"
+    ></script>
+  </head>
+  <body>
+    <script>
+      window.onload = function () {
+        getvotes();
+      };
+
+      function getvotes() {
+        abi = [
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "to",
+                type: "address",
+              },
+            ],
+            name: "delegate",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "voter",
+                type: "address",
+              },
+            ],
+            name: "giveRightToVote",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [],
+            stateMutability: "nonpayable",
+            type: "constructor",
+          },
+          {
+            inputs: [
+              {
+                internalType: "uint256",
+                name: "proposal",
+                type: "uint256",
+              },
+            ],
+            name: "vote",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "chairperson",
+            outputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+              },
+            ],
+            name: "proposals",
+            outputs: [
+              {
+                internalType: "string",
+                name: "name",
+                type: "string",
+              },
+              {
+                internalType: "uint256",
+                name: "voteCount",
+                type: "uint256",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            name: "voters",
+            outputs: [
+              {
+                internalType: "uint256",
+                name: "weight",
+                type: "uint256",
+              },
+              {
+                internalType: "bool",
+                name: "voted",
+                type: "bool",
+              },
+              {
+                internalType: "address",
+                name: "delegate",
+                type: "address",
+              },
+              {
+                internalType: "uint256",
+                name: "vote",
+                type: "uint256",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "winnerName",
+            outputs: [
+              {
+                internalType: "string",
+                name: "winnername_",
+                type: "string",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "winningProposal",
+            outputs: [
+              {
+                internalType: "uint256",
+                name: "winningProposal_",
+                type: "uint256",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ];
+
+        // const provider = new ethers.providers.web3Provider(web3.currentProvider);
+        const provider = new ethers.providers.Web3Provider(
+          web3.currentProvider
+        );
+
+        contract = new ethers.Contract(
+          "0x49068627aA72D8E52C2898da3CfEb81C8Fc910A9",
+          abi,
+          provider
+        );
+
+        //call the first proposal
+        var proposal0 = contract.proposals(0);
+
+        proposal0.then(function (result) {
+          console.log(contract, "e dey work");
+          document.getElementById("proposal0name").innerHTML = result[0];
+          document.getElementById("vote0count").innerHTML = result[1];
+        });
+
+        //call the second proposal
+        var proposal1 = contract.proposals(1);
+        proposal1.then(function (result) {
+          document.getElementById("proposal1name").innerHTML = result[0];
+          document.getElementById("vote1count").innerHTML = result[1];
+        });
+
+        //call the third proposal
+        var proposal2 = contract.proposals(2);
+        proposal2.then(function (result) {
+          document.getElementById("proposal2name").innerHTML = result[0];
+          document.getElementById("vote2count").innerHTML = result[1];
+        });
+        //call the forth proposal
+        var proposal2 = contract.proposals(3);
+        proposal2.then(function (result) {
+          document.getElementById("proposal3name").innerHTML = result[0];
+          document.getElementById("vote3count").innerHTML = result[1];
+        });
+      }
+
+      async function vote() {
+        abi = [
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "to",
+                type: "address",
+              },
+            ],
+            name: "delegate",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "voter",
+                type: "address",
+              },
+            ],
+            name: "giveRightToVote",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [],
+            stateMutability: "nonpayable",
+            type: "constructor",
+          },
+          {
+            inputs: [
+              {
+                internalType: "uint256",
+                name: "proposal",
+                type: "uint256",
+              },
+            ],
+            name: "vote",
+            outputs: [],
+            stateMutability: "nonpayable",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "chairperson",
+            outputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "uint256",
+                name: "",
+                type: "uint256",
+              },
+            ],
+            name: "proposals",
+            outputs: [
+              {
+                internalType: "string",
+                name: "name",
+                type: "string",
+              },
+              {
+                internalType: "uint256",
+                name: "voteCount",
+                type: "uint256",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [
+              {
+                internalType: "address",
+                name: "",
+                type: "address",
+              },
+            ],
+            name: "voters",
+            outputs: [
+              {
+                internalType: "uint256",
+                name: "weight",
+                type: "uint256",
+              },
+              {
+                internalType: "bool",
+                name: "voted",
+                type: "bool",
+              },
+              {
+                internalType: "address",
+                name: "delegate",
+                type: "address",
+              },
+              {
+                internalType: "uint256",
+                name: "vote",
+                type: "uint256",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "winnerName",
+            outputs: [
+              {
+                internalType: "string",
+                name: "winnername_",
+                type: "string",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+          {
+            inputs: [],
+            name: "winningProposal",
+            outputs: [
+              {
+                internalType: "uint256",
+                name: "winningProposal_",
+                type: "uint256",
+              },
+            ],
+            stateMutability: "view",
+            type: "function",
+          },
+        ];
+
+        await ethereum.request({ method: "eth_requestAccounts" });
+
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+
+        signer = provider.getSigner();
+        contract = new ethers.Contract(
+          "0x49068627aA72D8E52C2898da3CfEb81C8Fc910A9",
+          abi,
+          signer
+        );
+
+        let proposalval = document.getElementById("ProposalSelect").value;
+        let castvote = contract.vote(proposalval);
+
+        castvote.then(function (transaction) {
+          document.getElementById("metamask").innerHTML = transaction;
+
+          console.log(transaction, " transaction");
+        });
+      }
+    </script>
+    <div id="metamask"></div>
+
+
+
+
+
+    <header id="header" class="header ">
+    
+       <nav class="container container--pall header__nav flex flex-jc-sb flex-ai-c "> 
+          <a href="#" class="header__logo">
+            Dev Vote
+          </a>
+  
+          
+          <div class="header__links ">
+            <a class="navbar__link" href="#">Home</a>
+            <a class="navbar__link" href="#vote_id">Vote</a>
+           
+          </div>
+        
+          <!-- <a class=" button hide-for-mobile"> Request Invite</a> -->
+        </nav>
+  
+   
+    </header>
+  
+    <section class="hero ">
+      <div class="container">
+        <div class="hero__image">
+          <video width="100%" loop muted autoplay>
+            <source src="./abstract-dark-sci-fi-tunnel-with-green-light-seamless-loop-4k-3d-animation-background-free-video.mp4" type="video/mp4">
+            
+          
+          </video>
+        </div>
+        <div class="hero__text ">
+         <h1>Next Generation Voting</h1>
+         <p>Fullstack voting dApp in Solidity and Ether.Js </p>
+          <a href="#vote_id" class="button hero__cta">Vote Now</a>
+       </div>
+      </div>
+      
+    </section>
+
+  
+  
+   <section class="articles">
+     <div class="article__content container container--pall" id="vote_id">
+       <h2>
+          Vote Now
+       </h2>
+  
+       <div class="article__grid">
+         <a href="#" class="article__item">
+            <div class="article__text">
+              <div class="article__author">01</div>
+              <div class="article__title" id="proposal0name">...</div>
+              <div class="article__description" id="vote0count">...</div>
+            </div>
+         </a>
+  
+         <a href="#" class="article__item">
+  
+         
+            <div class="article__text">
+              <div class="article__author">02</div>
+              <div class="article__title" id="proposal1name">...</div>
+              <div class="article__description" id="vote1count">...</div>
+            </div>
+         </a>
+  
+         <a href="#" class="article__item">
+  
+        
+            <div class="article__text">
+              <div class="article__author">03</div>
+              <div class="article__title" id="proposal2name">...</div>
+              <div class="article__description" id="vote2count">...</div>
+            </div>
+         </a>
+  
+  
+         <a href="#" class="article__item">
+  
+            <div class="article__text">
+              <div class="article__author">04</div>
+              <div class="article__title" id="proposal3name">...</div>
+              <div class="article__description" id="vote3count">...</div>
+            </div>
+         </a>
+        </div>
+
+
+
+        <select id="ProposalSelect">
+          <option value="-1">--Select a proposal to vote --</option>
+          <option value="0">Oranges</option>
+          <option value="1">Apples</option>
+          <option value="2">Mangoes</option>
+          <option value="3">Bread</option>
+        </select>
+        <input
+          id="Button1"
+          type="button"
+          onclick="vote()"
+          class="button hero__cta"
+          value="Vote"
+        />
+        <!-- Or Delegate someone to vote
+        <input id="txtaddress" type="text" />
+        <input
+          id="Button1"
+          type="button"
+          onclick="delegate()"
+          class="button hero__cta"
+          value="Delegate"
+        /> -->
+          
+       </div>
+     </div>
+
+    
+
+   </section>
+  
+  
+    <footer class="footer">
+  
+
+    </footer>
+   
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
