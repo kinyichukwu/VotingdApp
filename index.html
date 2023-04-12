@@ -24,149 +24,152 @@
       };
 
       function getvotes() {
-        abi = [
-          {
-            inputs: [
-              {
-                internalType: "address",
-                name: "to",
-                type: "address",
-              },
-            ],
-            name: "delegate",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "address",
-                name: "voter",
-                type: "address",
-              },
-            ],
-            name: "giveRightToVote",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [],
-            stateMutability: "nonpayable",
-            type: "constructor",
-          },
-          {
-            inputs: [
-              {
-                internalType: "uint256",
-                name: "proposal",
-                type: "uint256",
-              },
-            ],
-            name: "vote",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [],
-            name: "chairperson",
-            outputs: [
-              {
-                internalType: "address",
-                name: "",
-                type: "address",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-              },
-            ],
-            name: "proposals",
-            outputs: [
-              {
-                internalType: "string",
-                name: "name",
-                type: "string",
-              },
-              {
-                internalType: "uint256",
-                name: "voteCount",
-                type: "uint256",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "address",
-                name: "",
-                type: "address",
-              },
-            ],
-            name: "voters",
-            outputs: [
-              {
-                internalType: "uint256",
-                name: "weight",
-                type: "uint256",
-              },
-              {
-                internalType: "bool",
-                name: "voted",
-                type: "bool",
-              },
-              {
-                internalType: "address",
-                name: "delegate",
-                type: "address",
-              },
-              {
-                internalType: "uint256",
-                name: "vote",
-                type: "uint256",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [],
-            name: "winnerName",
-            outputs: [
-              {
-                internalType: "string",
-                name: "winnername_",
-                type: "string",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [],
-            name: "winningProposal",
-            outputs: [
-              {
-                internalType: "uint256",
-                name: "winningProposal_",
-                type: "uint256",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-        ];
+       
+       abi = [
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"name": "delegate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "voter",
+				"type": "address"
+			}
+		],
+		"name": "giveRightToVote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "proposal",
+				"type": "uint256"
+			}
+		],
+		"name": "vote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "chairperson",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "proposals",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "voteCount",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "voters",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "weight",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "voted",
+				"type": "bool"
+			},
+			{
+				"internalType": "address",
+				"name": "delegate",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "vote",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "winnerName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "winnername_",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "winningProposal",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "winningProposal_",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
+
+
 
         // const provider = new ethers.providers.web3Provider(web3.currentProvider);
         const provider = new ethers.providers.Web3Provider(
@@ -174,7 +177,7 @@
         );
 
         contract = new ethers.Contract(
-          "0x49068627aA72D8E52C2898da3CfEb81C8Fc910A9",
+          "0xce51017C58ed5F4187604c97310D22A3c54b35b1",
           abi,
           provider
         );
@@ -183,7 +186,7 @@
         var proposal0 = contract.proposals(0);
 
         proposal0.then(function (result) {
-          console.log(contract, "e dey work");
+          console.log(contract, "working");
           document.getElementById("proposal0name").innerHTML = result[0];
           document.getElementById("vote0count").innerHTML = result[1];
         });
@@ -211,148 +214,148 @@
 
       async function vote() {
         abi = [
-          {
-            inputs: [
-              {
-                internalType: "address",
-                name: "to",
-                type: "address",
-              },
-            ],
-            name: "delegate",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "address",
-                name: "voter",
-                type: "address",
-              },
-            ],
-            name: "giveRightToVote",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [],
-            stateMutability: "nonpayable",
-            type: "constructor",
-          },
-          {
-            inputs: [
-              {
-                internalType: "uint256",
-                name: "proposal",
-                type: "uint256",
-              },
-            ],
-            name: "vote",
-            outputs: [],
-            stateMutability: "nonpayable",
-            type: "function",
-          },
-          {
-            inputs: [],
-            name: "chairperson",
-            outputs: [
-              {
-                internalType: "address",
-                name: "",
-                type: "address",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "uint256",
-                name: "",
-                type: "uint256",
-              },
-            ],
-            name: "proposals",
-            outputs: [
-              {
-                internalType: "string",
-                name: "name",
-                type: "string",
-              },
-              {
-                internalType: "uint256",
-                name: "voteCount",
-                type: "uint256",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [
-              {
-                internalType: "address",
-                name: "",
-                type: "address",
-              },
-            ],
-            name: "voters",
-            outputs: [
-              {
-                internalType: "uint256",
-                name: "weight",
-                type: "uint256",
-              },
-              {
-                internalType: "bool",
-                name: "voted",
-                type: "bool",
-              },
-              {
-                internalType: "address",
-                name: "delegate",
-                type: "address",
-              },
-              {
-                internalType: "uint256",
-                name: "vote",
-                type: "uint256",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [],
-            name: "winnerName",
-            outputs: [
-              {
-                internalType: "string",
-                name: "winnername_",
-                type: "string",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-          {
-            inputs: [],
-            name: "winningProposal",
-            outputs: [
-              {
-                internalType: "uint256",
-                name: "winningProposal_",
-                type: "uint256",
-              },
-            ],
-            stateMutability: "view",
-            type: "function",
-          },
-        ];
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "to",
+				"type": "address"
+			}
+		],
+		"name": "delegate",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "voter",
+				"type": "address"
+			}
+		],
+		"name": "giveRightToVote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"stateMutability": "nonpayable",
+		"type": "constructor"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "proposal",
+				"type": "uint256"
+			}
+		],
+		"name": "vote",
+		"outputs": [],
+		"stateMutability": "nonpayable",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "chairperson",
+		"outputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "uint256",
+				"name": "",
+				"type": "uint256"
+			}
+		],
+		"name": "proposals",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "name",
+				"type": "string"
+			},
+			{
+				"internalType": "uint256",
+				"name": "voteCount",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [
+			{
+				"internalType": "address",
+				"name": "",
+				"type": "address"
+			}
+		],
+		"name": "voters",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "weight",
+				"type": "uint256"
+			},
+			{
+				"internalType": "bool",
+				"name": "voted",
+				"type": "bool"
+			},
+			{
+				"internalType": "address",
+				"name": "delegate",
+				"type": "address"
+			},
+			{
+				"internalType": "uint256",
+				"name": "vote",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "winnerName",
+		"outputs": [
+			{
+				"internalType": "string",
+				"name": "winnername_",
+				"type": "string"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	},
+	{
+		"inputs": [],
+		"name": "winningProposal",
+		"outputs": [
+			{
+				"internalType": "uint256",
+				"name": "winningProposal_",
+				"type": "uint256"
+			}
+		],
+		"stateMutability": "view",
+		"type": "function"
+	}
+]
 
         await ethereum.request({ method: "eth_requestAccounts" });
 
@@ -360,7 +363,7 @@
 
         signer = provider.getSigner();
         contract = new ethers.Contract(
-          "0x49068627aA72D8E52C2898da3CfEb81C8Fc910A9",
+          "0xce51017C58ed5F4187604c97310D22A3c54b35b1",
           abi,
           signer
         );
@@ -471,10 +474,10 @@
 
         <select id="ProposalSelect">
           <option value="-1">--Select a proposal to vote --</option>
-          <option value="0">Oranges</option>
-          <option value="1">Apples</option>
-          <option value="2">Mangoes</option>
-          <option value="3">Bread</option>
+          <option value="0">LinkedIn</option>
+          <option value="1">Twitter</option>
+          <option value="2">Youtube</option>
+          <option value="3">Tiktok</option>
         </select>
         <input
           id="Button1"
@@ -483,15 +486,6 @@
           class="button hero__cta"
           value="Vote"
         />
-        <!-- Or Delegate someone to vote
-        <input id="txtaddress" type="text" />
-        <input
-          id="Button1"
-          type="button"
-          onclick="delegate()"
-          class="button hero__cta"
-          value="Delegate"
-        /> -->
           
        </div>
      </div>
